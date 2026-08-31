@@ -31,13 +31,13 @@ function QuestionNavigator({
         <p className="font-semibold">Question Navigator</p>
         <p className="text-xs text-slate-500">{questions.length} questions</p>
       </div>
-      <div className="grid grid-cols-5 gap-2">
+      <div className="grid grid-cols-5 gap-2 sm:grid-cols-6 2xl:grid-cols-5">
         {questions.map((question, index) => (
           <button
             key={question.id}
             type="button"
             onClick={() => onJump(index)}
-            className={`rounded-2xl border px-3 py-2 text-sm font-semibold transition ${getStateClass(
+            className={`rounded-xl border px-2.5 py-2 text-sm font-semibold transition ${getStateClass(
               question,
               index
             )}`}

@@ -3,9 +3,9 @@ import { NavLink } from "react-router-dom";
 
 function Sidebar({ items, stats }) {
   return (
-    <aside className="hidden w-72 shrink-0 lg:block">
+    <aside className="hidden w-64 shrink-0 2xl:block 2xl:w-72">
       <div className="sticky top-4 flex flex-col gap-4">
-        <div className="panel p-5">
+        <div className="panel p-4 2xl:p-5">
           <p className="text-xs font-semibold uppercase tracking-[0.25em] text-brand-600">
             Quick Access
           </p>
@@ -22,7 +22,7 @@ function Sidebar({ items, stats }) {
           </nav>
         </div>
 
-        <div className="panel p-5">
+        <div className="panel p-4 2xl:p-5">
           <p className="text-sm font-semibold text-slate-900 dark:text-white">Progress Snapshot</p>
           <div className="mt-4 space-y-3">
             <div className="flex items-center gap-3 rounded-2xl bg-slate-50 p-3 dark:bg-slate-800/70">

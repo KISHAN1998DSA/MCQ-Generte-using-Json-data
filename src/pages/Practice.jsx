@@ -1,20 +1,17 @@
 import { useEffect, useMemo, useState } from "react";
-import { Menu, TriangleAlert } from "lucide-react";
+import { Menu, TriangleAlert, Zap } from "lucide-react";
 import { useNavigate, useParams } from "react-router-dom";
 import MCQCard from "../components/MCQCard";
 import ProgressBar from "../components/ProgressBar";
 import QuestionNavigator from "../components/QuestionNavigator";
 import Timer from "../components/Timer";
+import { calculateResult, formatTime } from "../utils/questionUtils";
 import {
-  calculateResult,
-  formatTime,
-} from "../utils/questionUtils";
-import {
-  getBookmarks,
-  toggleBookmark,
-  getSession,
-  updateSession,
   appendHistory,
+  getBookmarks,
+  getSession,
+  toggleBookmark,
+  updateSession,
   updateStats,
 } from "../utils/storage";
 
@@ -143,84 +140,105 @@ function Practice({ setStats }) {
     : null;
 
   return (
-    <div className="grid gap-6 xl:grid-cols-[minmax(0,1fr)_320px]">
-      <div className="space-y-6">
-        <section className="panel p-5 sm:p-6">
-          <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
-            <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.25em] text-brand-600">
-                {session.subjectTitle}
-              </p>
-              <h1 className="mt-2 font-display text-3xl font-bold">
-                Question {currentIndex + 1} of {session.questions.length}
-              </h1>
+    <div className="space-y-4">
+      <section className="panel p-4">
+        <p className="flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.2em] text-violet-600">
+          <Zap className="h-3.5 w-3.5" />
+          Live Quiz
+        </p>
+        <div className="mt-3 grid gap-4 xl:grid-cols-[minmax(0,1fr)_280px]">
+          <div className="min-w-0">
+            <div className="flex flex-col gap-3 lg:flex-row lg:items-start lg:justify-between">
+              <div>
+                <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-400">
+                  {session.subjectTitle}
+                </p>
+                <h1 className="mt-1 font-display text-xl font-bold text-slate-950 sm:text-2xl dark:text-white">
+                  Question {currentIndex + 1} of {session.questions.length}
+                </h1>
+              </div>
+              <div className="flex flex-wrap items-center gap-2">
+                {timeRemaining !== null ? (
+                  <Timer secondsRemaining={timeRemaining} />
+                ) : (
+                  <div className="rounded-xl bg-slate-100 px-3 py-2 text-sm dark:bg-slate-800">
+                    Time: <span className="font-semibold">{formatTime(session.elapsedSeconds)}</span>
+                  </div>
+                )}
+                <button
+                  type="button"
+                  onClick={() => setDrawerOpen((open) => !open)}
+                  className="btn-secondary xl:hidden"
+                >
+                  <Menu className="mr-2 h-4 w-4" />
+                  Navigator
+                </button>
+              </div>
             </div>
-            <div className="flex flex-wrap items-center gap-3">
-              {timeRemaining !== null ? (
-                <Timer secondsRemaining={timeRemaining} />
-              ) : (
-                <div className="rounded-2xl bg-slate-100 px-4 py-3 text-sm dark:bg-slate-800">
-                  Time Taken: <span className="font-semibold">{formatTime(session.elapsedSeconds)}</span>
+            <div className="mt-4 border-t border-[#efe7ff] pt-3 dark:border-slate-800">
+              <ProgressBar value={answeredCount} total={session.questions.length} />
+              <div className="mt-3 flex flex-wrap gap-2">
+                <div className="rounded-full bg-violet-100 px-3 py-1.5 text-xs font-semibold text-violet-700 dark:bg-violet-500/10 dark:text-violet-300">
+                  {answerMode === "practice" ? "Practice mode" : "Exam mode"}
                 </div>
-              )}
-              <button
-                type="button"
-                onClick={() => setDrawerOpen((open) => !open)}
-                className="btn-secondary xl:hidden"
-              >
-                <Menu className="mr-2 h-4 w-4" />
-                Navigator
-              </button>
+                <div className="rounded-full bg-slate-100 px-3 py-1.5 text-xs font-semibold text-slate-600 dark:bg-slate-800 dark:text-slate-300">
+                  Answered {answeredCount}
+                </div>
+              </div>
             </div>
           </div>
-          <div className="mt-5">
-            <ProgressBar value={answeredCount} total={session.questions.length} />
+
+          <div className={`${drawerOpen ? "block" : "hidden"} xl:block`}>
+            <QuestionNavigator
+              questions={session.questions}
+              currentIndex={currentIndex}
+              answers={session.answers}
+              visited={session.visited}
+              onJump={goToQuestion}
+            />
           </div>
-        </section>
+        </div>
+      </section>
 
-        <MCQCard
-          question={currentQuestion}
-          questionNumber={currentIndex + 1}
-          selectedAnswer={session.answers[currentIndex]}
-          isLocked={isPracticeAnswered}
-          showResult={session.answers[currentIndex] !== undefined}
-          answerMode={answerMode}
-          onSelect={selectAnswer}
-          isBookmarked={isBookmarked}
-          onToggleBookmark={toggleCurrentBookmark}
-        />
+      <div className="grid gap-4 xl:grid-cols-[minmax(0,1fr)_280px]">
+        <div className="space-y-4">
+          <MCQCard
+            question={currentQuestion}
+            questionNumber={currentIndex + 1}
+            selectedAnswer={session.answers[currentIndex]}
+            isLocked={isPracticeAnswered}
+            showResult={session.answers[currentIndex] !== undefined}
+            answerMode={answerMode}
+            onSelect={selectAnswer}
+            isBookmarked={isBookmarked}
+            onToggleBookmark={toggleCurrentBookmark}
+          />
 
-        <section className="panel flex flex-col gap-3 p-4 sm:flex-row sm:items-center sm:justify-between">
-          <button type="button" onClick={handlePrev} disabled={currentIndex === 0} className="btn-secondary">
-            {"<-"} Previous
-          </button>
-          {currentIndex === session.questions.length - 1 ? (
-            <button type="button" onClick={() => submitTest()} className="btn-primary">
-              Submit Test
+          <section className="panel flex flex-col gap-3 p-3.5 sm:flex-row sm:items-center sm:justify-between">
+            <button type="button" onClick={handlePrev} disabled={currentIndex === 0} className="btn-secondary">
+              {"<-"} Previous
             </button>
-          ) : (
-            <button type="button" onClick={handleNext} className="btn-primary">
-              Next {"->"}
-            </button>
-          )}
-        </section>
-      </div>
+            {currentIndex === session.questions.length - 1 ? (
+              <button type="button" onClick={() => submitTest()} className="btn-primary">
+                Submit Test
+              </button>
+            ) : (
+              <button type="button" onClick={handleNext} className="btn-primary">
+                Next {"->"}
+              </button>
+            )}
+          </section>
+        </div>
 
-      <div className={`space-y-6 ${drawerOpen ? "block" : "hidden xl:block"}`}>
-        <QuestionNavigator
-          questions={session.questions}
-          currentIndex={currentIndex}
-          answers={session.answers}
-          visited={session.visited}
-          onJump={goToQuestion}
-        />
-        <div className="panel p-4 text-sm text-slate-600 dark:text-slate-300">
-          <p className="font-semibold text-slate-900 dark:text-white">Legend</p>
-          <div className="mt-3 space-y-2">
-            <p>Blue: current question</p>
-            <p>Soft blue: answered</p>
-            <p>Amber: visited</p>
-            <p>White: not visited</p>
+        <div className="hidden xl:block">
+          <div className="panel p-4 text-sm text-slate-600 dark:text-slate-300">
+            <p className="font-semibold text-slate-900 dark:text-white">Legend</p>
+            <div className="mt-3 space-y-2">
+              <p>Blue: current question</p>
+              <p>Soft blue: answered</p>
+              <p>Amber: visited</p>
+              <p>White: not visited</p>
+            </div>
           </div>
         </div>
       </div>

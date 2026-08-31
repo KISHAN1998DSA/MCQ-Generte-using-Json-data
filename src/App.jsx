@@ -34,10 +34,10 @@ function App() {
   );
 
   return (
-    <div className="min-h-screen bg-slate-100 text-slate-900 transition-colors duration-300 dark:bg-slate-950 dark:text-slate-100">
-      <div className="mx-auto flex min-h-screen max-w-7xl gap-6 px-4 py-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen text-slate-900 transition-colors duration-300 dark:bg-slate-950 dark:text-slate-100">
+      <div className="mx-auto flex min-h-screen max-w-[1440px] gap-4 px-3 py-3 sm:gap-5 sm:px-5 lg:gap-6 lg:px-6 xl:px-8">
         <Sidebar items={sidebarItems} stats={stats} />
-        <div className="flex min-w-0 flex-1 flex-col gap-6">
+        <div className="flex min-w-0 flex-1 flex-col gap-4 lg:gap-5">
           <Header theme={theme} setTheme={setTheme} />
           <main className="flex-1">
             <Routes>

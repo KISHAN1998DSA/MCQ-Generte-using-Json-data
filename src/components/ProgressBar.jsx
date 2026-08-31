@@ -8,9 +8,9 @@ function ProgressBar({ value, total }) {
           {value} / {total}
         </span>
       </div>
-      <div className="h-3 rounded-full bg-slate-200 dark:bg-slate-800">
+      <div className="h-2 rounded-full bg-slate-200 dark:bg-slate-800">
         <div
-          className="h-3 rounded-full bg-gradient-to-r from-brand-500 to-accent transition-all"
+          className="h-2 rounded-full bg-gradient-to-r from-violet-500 to-cyan-500 transition-all"
           style={{ width: `${percentage}%` }}
         />
       </div>

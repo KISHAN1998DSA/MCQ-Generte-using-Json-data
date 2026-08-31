@@ -9,9 +9,9 @@ function ResultCard({ label, value, tone = "default" }) {
           : "bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-100";
 
   return (
-    <div className="panel p-5">
+    <div className="panel p-4 sm:p-5">
       <div className={`badge ${toneClass}`}>{label}</div>
-      <p className="mt-4 text-3xl font-bold">{value}</p>
+      <p className="mt-3 text-2xl font-bold sm:text-3xl">{value}</p>
     </div>
   );
 }
