@@ -1,0 +1,27 @@
+{
+  "title": "Database",
+  "description": "Database practice questions",
+  "questions": [
+    {
+      "id": 1,
+      "question": "Which normal form removes partial dependency?",
+      "options": ["1NF", "2NF", "3NF", "BCNF"],
+      "answer": 1,
+      "explanation": "Second Normal Form removes partial dependency."
+    },
+    {
+      "id": 2,
+      "question": "Which SQL command is used to remove a table?",
+      "options": ["DELETE", "DROP", "REMOVE", "TRUNCATE"],
+      "answer": 1,
+      "explanation": "DROP removes the table structure and data."
+    },
+    {
+      "id": 3,
+      "question": "Which property ensures that a transaction is fully completed or not executed at all?",
+      "options": ["Consistency", "Isolation", "Atomicity", "Durability"],
+      "answer": 2,
+      "explanation": "Atomicity ensures all-or-nothing execution."
+    }
+  ]
+}

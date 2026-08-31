@@ -1,0 +1,27 @@
+{
+  "title": "Digital Logic",
+  "description": "Digital Logic practice questions",
+  "questions": [
+    {
+      "id": 1,
+      "question": "Which gate is known as a universal gate?",
+      "options": ["AND", "OR", "NAND", "XOR"],
+      "answer": 2,
+      "explanation": "NAND can implement all other basic logic gates."
+    },
+    {
+      "id": 2,
+      "question": "How many minterms are possible for a Boolean function with 3 variables?",
+      "options": ["4", "6", "8", "16"],
+      "answer": 2,
+      "explanation": "A function with 3 variables has 2^3 = 8 possible minterms."
+    },
+    {
+      "id": 3,
+      "question": "Which flip-flop toggles its state when both inputs are high?",
+      "options": ["SR flip-flop", "JK flip-flop", "D flip-flop", "T flip-flop"],
+      "answer": 1,
+      "explanation": "JK flip-flop toggles when J = K = 1."
+    }
+  ]
+}

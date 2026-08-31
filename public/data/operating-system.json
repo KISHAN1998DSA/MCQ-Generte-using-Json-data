@@ -1,0 +1,27 @@
+{
+  "title": "Operating System",
+  "description": "Operating System practice questions",
+  "questions": [
+    {
+      "id": 1,
+      "question": "Which scheduling algorithm can lead to starvation?",
+      "options": ["FCFS", "Round Robin", "Priority Scheduling", "FIFO"],
+      "answer": 2,
+      "explanation": "Priority scheduling can starve lower-priority processes."
+    },
+    {
+      "id": 2,
+      "question": "Which memory management technique suffers from external fragmentation?",
+      "options": ["Paging", "Segmentation", "Virtual memory", "Cache mapping"],
+      "answer": 1,
+      "explanation": "Segmentation can lead to external fragmentation."
+    },
+    {
+      "id": 3,
+      "question": "A deadlock requires which one of the following conditions?",
+      "options": ["Mutual exclusion", "Preemption", "Spooling", "Caching"],
+      "answer": 0,
+      "explanation": "Mutual exclusion is one of the Coffman deadlock conditions."
+    }
+  ]
+}

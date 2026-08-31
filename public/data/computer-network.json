@@ -1,0 +1,27 @@
+{
+  "title": "Computer Networks",
+  "description": "Computer Networks practice questions",
+  "questions": [
+    {
+      "id": 1,
+      "question": "Which layer of the OSI model is responsible for routing?",
+      "options": ["Transport", "Network", "Session", "Presentation"],
+      "answer": 1,
+      "explanation": "The network layer handles logical addressing and routing."
+    },
+    {
+      "id": 2,
+      "question": "Which protocol is used to assign IP addresses dynamically?",
+      "options": ["FTP", "SMTP", "DHCP", "ARP"],
+      "answer": 2,
+      "explanation": "DHCP dynamically assigns IP configuration to clients."
+    },
+    {
+      "id": 3,
+      "question": "What is the default port number for HTTPS?",
+      "options": ["21", "53", "80", "443"],
+      "answer": 3,
+      "explanation": "HTTPS uses port 443 by default."
+    }
+  ]
+}
