@@ -1,4 +1,6 @@
-export function sanitizeQuestion(question, fallbackIndex) {
+import { getStableQuestionId } from "./questionIdentity";
+
+export function sanitizeQuestion(question, fallbackIndex, subjectId = "generic") {
   const options = Array.isArray(question?.options)
     ? question.options.filter((option) => typeof option === "string" && option.trim())
     : [];
@@ -7,13 +9,16 @@ export function sanitizeQuestion(question, fallbackIndex) {
       ? question.answer
       : null;
 
-  return {
-    id: question?.id ?? `q-${fallbackIndex + 1}`,
+  const rawId = question?.id ?? `q-${fallbackIndex + 1}`;
+  const topic = question?.topic?.trim() || "";
+
+  const baseSanitized = {
+    id: rawId,
     question: question?.question?.trim() || "Question text is missing.",
     options,
     answer,
     explanation: question?.explanation?.trim() || "No explanation provided for this question.",
-    topic: question?.topic?.trim() || "",
+    topic,
     hasError: !options.length || answer === null,
     errorMessage: !options.length
       ? "This question does not have valid answer options."
@@ -21,13 +26,18 @@ export function sanitizeQuestion(question, fallbackIndex) {
         ? "This question has an invalid answer index."
         : "",
   };
+
+  return {
+    ...baseSanitized,
+    globalId: getStableQuestionId(baseSanitized, subjectId, topic, fallbackIndex),
+  };
 }
 
-export function sanitizeQuestions(rawQuestions) {
+export function sanitizeQuestions(rawQuestions, subjectId = "generic") {
   if (!Array.isArray(rawQuestions)) return [];
   const usedIds = new Set();
   return rawQuestions.map((question, index) => {
-    const sanitized = sanitizeQuestion(question, index);
+    const sanitized = sanitizeQuestion(question, index, subjectId);
     let nextId = String(sanitized.id);
     if (usedIds.has(nextId)) {
       nextId = `${nextId}-${index + 1}`;
@@ -40,17 +50,17 @@ export function sanitizeQuestions(rawQuestions) {
   });
 }
 
-export function extractQuestions(payload) {
+export function extractQuestions(payload, subjectId = "generic") {
   if (Array.isArray(payload?.questions)) {
-    return sanitizeQuestions(payload.questions);
+    return sanitizeQuestions(payload.questions, subjectId);
   }
 
   if (Array.isArray(payload?.topics)) {
-    return sanitizeQuestions(extractNestedQuestions(payload.topics));
+    return sanitizeQuestions(extractNestedQuestions(payload.topics), subjectId);
   }
 
   if (payload && typeof payload === "object") {
-    return sanitizeQuestions(extractNestedQuestions([payload]));
+    return sanitizeQuestions(extractNestedQuestions([payload]), subjectId);
   }
 
   return [];

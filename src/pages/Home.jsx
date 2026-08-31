@@ -1,239 +1,360 @@
-import { useEffect, useMemo, useState } from "react";
-import { BookmarkCheck, FolderOpen, History, Infinity, Layers3, LoaderCircle } from "lucide-react";
-import { useSearchParams } from "react-router-dom";
-import subjects from "../data/subjects";
-import SubjectCard from "../components/SubjectCard";
-import { extractQuestions, loadSubjectData } from "../utils/questionUtils";
-import { getBookmarks, getStorageItem, STORAGE_KEYS } from "../utils/storage";
+import { useEffect, useState, useMemo } from "react";
+import { AlertCircle, Award, BookOpen, BookmarkCheck, CheckCircle2, FileText, Flame, Layers, LoaderCircle, PlayCircle, RefreshCw, RotateCcw, Search, Sparkles, Trophy, Zap } from "lucide-react";
+import { Link, useNavigate } from "react-router-dom";
+import { contentRegistry, CATEGORY_META, CATEGORY_TYPES } from "../services/contentRegistry";
+import { storageService } from "../services/storageService";
+import { getStorageItem, clearActiveSession, STORAGE_KEYS } from "../utils/storage";
 
-function Home() {
-  const [searchParams] = useSearchParams();
-  const [subjectData, setSubjectData] = useState([]);
+function Home({ stats }) {
+  const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState("");
-  const [bookmarks, setBookmarks] = useState([]);
-  const [history, setHistory] = useState([]);
+  const [categorized, setCategorized] = useState(null);
+  const [activeSession, setActiveSession] = useState(null);
+  const [wrongCount, setWrongCount] = useState(0);
+  const [bookmarkCount, setBookmarkCount] = useState(0);
+  const [topicAnalytics, setTopicAnalytics] = useState({ weakTopics: [] });
+  const [selectedCategory, setSelectedCategory] = useState("all");
+  const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
     let isMounted = true;
+
     const loadDashboard = async () => {
-      try {
-        setLoading(true);
-        const data = await Promise.all(
-          subjects.map(async (subject) => {
-            try {
-              const payload = await loadSubjectData(subject.file);
-              const questions = extractQuestions(payload);
-              return { ...subject, payload, questions, loadError: "" };
-            } catch (subjectError) {
-              return { ...subject, payload: null, questions: [], loadError: subjectError.message };
-            }
-          })
-        );
-        if (isMounted) {
-          setSubjectData(data);
-          setBookmarks(getBookmarks());
-          setHistory(getStorageItem(STORAGE_KEYS.history, []));
+      setLoading(true);
+      const catData = await contentRegistry.getCategorizedContent();
+
+      // Check active interrupted session
+      const activeSessionId = getStorageItem(STORAGE_KEYS.session, null);
+      let sessionData = null;
+      if (activeSessionId) {
+        const sessions = getStorageItem(STORAGE_KEYS.sessions, {});
+        sessionData = sessions[activeSessionId] || null;
+        if (sessionData?.submittedAt) {
+          sessionData = null;
         }
-      } catch {
-        if (isMounted) setError("Unable to load the dashboard right now.");
-      } finally {
-        if (isMounted) setLoading(false);
+      }
+
+      // Wrong questions count
+      const wrongList = await storageService.getWrongQuestions();
+      const bookmarks = getStorageItem(STORAGE_KEYS.bookmarks, []);
+      const analytics = storageService.getTopicPerformance();
+
+      if (isMounted) {
+        setCategorized(catData);
+        setActiveSession(sessionData);
+        setWrongCount(wrongList.length);
+        setBookmarkCount(bookmarks.length);
+        setTopicAnalytics(analytics);
+        setLoading(false);
       }
     };
+
     loadDashboard();
-    window.addEventListener("storage", loadDashboard);
     return () => {
       isMounted = false;
-      window.removeEventListener("storage", loadDashboard);
     };
   }, []);
 
-  const query = (searchParams.get("q") || "").trim().toLowerCase();
-  const section = searchParams.get("section");
+  const handleAbandonSession = () => {
+    clearActiveSession();
+    setActiveSession(null);
+  };
 
-  const enrichedSubjects = useMemo(() => {
-    return subjectData
-      .map((subject) => {
-        const questionMatches = subject.questions.filter((question) =>
-          question.question.toLowerCase().includes(query)
-        ).length;
-        const subjectMatches = [subject.title, subject.description, subject.payload?.description]
-          .filter(Boolean)
-          .join(" ")
-          .toLowerCase()
-          .includes(query);
-        return {
-          ...subject,
-          questionCount: subject.questions.length,
-          matchCount: query ? (subjectMatches ? questionMatches || 1 : questionMatches) : null,
-          visible: !query || subjectMatches || questionMatches > 0,
-        };
-      })
-      .filter((subject) => subject.visible);
-  }, [query, subjectData]);
+  const handleQuickPractice = (questionCount) => {
+    if (!categorized?.loadedSets?.length) return;
+    const defaultSet = categorized.loadedSets[0];
+    navigate(`/setup/${defaultSet.id}?limit=${questionCount}`);
+  };
 
-  const totalQuestions = useMemo(
-    () => subjectData.reduce((sum, subject) => sum + subject.questions.length, 0),
-    [subjectData]
-  );
+  const filteredSets = useMemo(() => {
+    if (!categorized?.loadedSets) return [];
+    return categorized.loadedSets.filter((set) => {
+      if (selectedCategory !== "all" && set.type !== selectedCategory) return false;
+      if (searchQuery) {
+        const q = searchQuery.toLowerCase();
+        const matchTitle = set.title.toLowerCase().includes(q);
+        const matchDesc = set.description?.toLowerCase().includes(q);
+        if (!matchTitle && !matchDesc) return false;
+      }
+      return true;
+    });
+  }, [categorized, selectedCategory, searchQuery]);
 
   if (loading) {
     return (
       <div className="panel flex min-h-[300px] items-center justify-center gap-3">
-        <LoaderCircle className="h-5 w-5 animate-spin text-brand-600" />
-        <span>Loading your MCQ dashboard...</span>
+        <LoaderCircle className="h-5 w-5 animate-spin text-violet-600" />
+        <span>Loading Preparation Dashboard...</span>
       </div>
     );
   }
 
-  if (error) {
-    return <div className="panel p-6 text-danger">{error}</div>;
-  }
-
   return (
-    <div className="space-y-4 lg:space-y-5">
-      <section className="panel overflow-hidden px-4 py-6 text-center sm:px-5 lg:px-6 lg:py-7">
-        <div className="mx-auto max-w-3xl">
-          <div className="mx-auto inline-flex items-center gap-2 rounded-full bg-violet-100 px-3 py-1.5 text-[11px] font-bold uppercase tracking-[0.2em] text-violet-700 dark:bg-violet-500/10 dark:text-violet-300">
-            <span className="inline-block h-2 w-2 rounded-full bg-violet-500" />
-            Library
-          </div>
-          <h1 className="mt-4 font-display text-2xl font-bold tracking-tight text-slate-950 sm:text-3xl lg:text-4xl dark:text-white">
-            Browse every subject
-          </h1>
-          <p className="mx-auto mt-3 max-w-2xl text-sm leading-6 text-slate-500 dark:text-slate-400 sm:text-[15px]">
-            Find a category, open its topic-wise question bank, and practice at your own pace with
-            instant results and simple exam-friendly screens.
-          </p>
-          <div className="mt-5 grid gap-3 sm:grid-cols-3">
-            <HeroStat icon={FolderOpen} label="Categories" value={subjects.length} tone="violet" />
-            <HeroStat icon={Layers3} label="Questions" value={totalQuestions} tone="cyan" />
-            <HeroStat icon={Infinity} label="Practice attempts" value="Unlimited" tone="orange" />
-          </div>
-        </div>
-      </section>
-
-      <section className="grid gap-4 2xl:grid-cols-[minmax(0,2fr)_320px]">
-        <div className="space-y-4">
-          <div>
-            <p className="text-xs font-bold uppercase tracking-[0.25em] text-violet-600">Topics</p>
-            <h2 className="mt-2 font-display text-xl font-bold sm:text-2xl">Explore sub categories</h2>
-            <p className="text-sm text-slate-500 dark:text-slate-400">
-              {query ? `Search results for "${query}"` : "Choose a subject and begin practice."}
-            </p>
-          </div>
-
-          <div className="grid gap-3 lg:grid-cols-2">
-            {enrichedSubjects.map((subject) => (
-              <SubjectCard
-                key={subject.id}
-                subject={subject}
-                questionCount={subject.questionCount}
-                matchCount={subject.matchCount}
-              />
-            ))}
-          </div>
-
-          {!enrichedSubjects.length && (
-            <div className="panel p-6 text-sm text-slate-500">
-              No matching subjects or questions were found.
-            </div>
-          )}
-        </div>
-
-        <div className="space-y-4">
-          <section className={`panel p-4 ${section === "bookmarks" ? "ring-2 ring-brand-500" : ""}`}>
-            <div className="flex items-center gap-3">
-              <BookmarkCheck className="h-5 w-5 text-brand-600" />
-              <div>
-                <h3 className="font-semibold">Bookmarked Questions</h3>
-                <p className="text-sm text-slate-500 dark:text-slate-400">{bookmarks.length} saved for revision</p>
+    <div className="space-y-5 lg:space-y-6">
+      {/* 1. Unfinished / Interrupted Test Banner (Resume System) */}
+      {activeSession && (
+        <section className="rounded-[28px] border-2 border-violet-500 bg-gradient-to-r from-violet-600 to-indigo-600 p-5 text-white shadow-xl animate-fadeIn">
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+            <div className="space-y-1">
+              <div className="inline-flex items-center gap-2 rounded-full bg-white/20 px-3 py-1 text-xs font-bold uppercase tracking-wider">
+                <Flame className="h-3.5 w-3.5 text-amber-300" />
+                Unfinished Test Session
               </div>
+              <h2 className="font-display text-xl font-bold">
+                {activeSession.subjectTitle}
+              </h2>
+              <p className="text-xs text-violet-100">
+                You were on Question {Object.keys(activeSession.answers || {}).length + 1} of{" "}
+                {activeSession.questions?.length || 0}. Continue where you left off.
+              </p>
             </div>
-            <div className="mt-4 space-y-3">
-              {bookmarks.slice(0, 5).map((bookmark) => (
-                <div
-                  key={`${bookmark.subjectId}-${bookmark.questionId}`}
-                  className="rounded-2xl bg-slate-50 p-3 text-sm dark:bg-slate-800/70"
-                >
-                  <p className="font-semibold">{bookmark.subjectTitle}</p>
-                  <p className="mt-1 text-slate-600 dark:text-slate-300">{bookmark.question}</p>
-                </div>
-              ))}
-              {!bookmarks.length && (
-                <p className="text-sm text-slate-500 dark:text-slate-400">
-                  Bookmark questions during practice to see them here.
-                </p>
-              )}
-            </div>
-          </section>
 
-          <section className={`panel p-4 ${section === "history" ? "ring-2 ring-brand-500" : ""}`}>
-            <div className="flex items-center gap-3">
-              <History className="h-5 w-5 text-brand-600" />
-              <div>
-                <h3 className="font-semibold">Recent Attempts</h3>
-                <p className="text-sm text-slate-500 dark:text-slate-400">Your latest practice sessions</p>
-              </div>
+            <div className="flex items-center gap-2">
+              <button
+                type="button"
+                onClick={handleAbandonSession}
+                className="rounded-2xl bg-white/10 px-4 py-2.5 text-xs font-semibold text-white hover:bg-white/20"
+              >
+                Abandon
+              </button>
+              <button
+                type="button"
+                onClick={() => navigate(`/practice/${activeSession.id}`)}
+                className="rounded-2xl bg-white px-5 py-2.5 text-xs font-bold text-violet-900 shadow-md hover:bg-violet-50"
+              >
+                Resume Test Now →
+              </button>
             </div>
-            <div className="mt-4 space-y-3">
-              {history.slice(0, 5).map((entry) => (
-                <div key={entry.id} className="rounded-2xl bg-slate-50 p-3 text-sm dark:bg-slate-800/70">
-                  <div className="flex items-center justify-between gap-3">
-                    <p className="font-semibold">{entry.subjectTitle}</p>
-                    <span className="text-xs text-slate-500">{entry.dateLabel}</span>
-                  </div>
-                  <p className="mt-1 text-slate-600 dark:text-slate-300">
-                    {entry.total} Questions | Score {entry.correct}/{entry.total} | Accuracy {entry.accuracy}%
-                  </p>
-                </div>
-              ))}
-              {!history.length && (
-                <p className="text-sm text-slate-500 dark:text-slate-400">
-                  Your completed practice attempts will appear here.
-                </p>
-              )}
-            </div>
-          </section>
-        </div>
-      </section>
-
-      {subjectData.some((subject) => subject.loadError) && (
-        <section className="panel p-5">
-          <h3 className="font-semibold">Data loading notes</h3>
-          <div className="mt-3 space-y-2 text-sm text-slate-600 dark:text-slate-300">
-            {subjectData
-              .filter((subject) => subject.loadError)
-              .map((subject) => (
-                <p key={subject.id}>
-                  {subject.title}: {subject.loadError}
-                </p>
-              ))}
           </div>
         </section>
       )}
+
+      {/* 2. Hero Dashboard Welcome Banner */}
+      <section className="panel overflow-hidden px-5 py-6 sm:p-7">
+        <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+          <div>
+            <div className="inline-flex items-center gap-2 rounded-full bg-violet-100 px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-violet-700 dark:bg-violet-500/10 dark:text-violet-300">
+              <Sparkles className="h-3.5 w-3.5" />
+              Personal Preparation System
+            </div>
+            <h1 className="mt-3 font-display text-2xl font-bold tracking-tight text-slate-950 sm:text-3xl lg:text-4xl dark:text-white">
+              Exam Dashboard
+            </h1>
+            <p className="mt-2 text-sm leading-6 text-slate-500 dark:text-slate-400 max-w-2xl">
+              Practice JSON question banks, track mistakes, write personal learning notes, and monitor your accuracy trends.
+            </p>
+          </div>
+
+          <div className="flex items-center gap-3">
+            <Link to="/custom-quiz" className="btn-primary">
+              <Zap className="mr-2 h-4 w-4" /> Create Custom Quiz
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* 3. Quick Practice Buttons */}
+      <section className="panel p-5 space-y-3">
+        <div className="flex items-center justify-between">
+          <h2 className="font-display text-base font-bold text-slate-950 dark:text-white">
+            ⚡ Quick Drill Practice
+          </h2>
+          <span className="text-xs text-slate-400">Launch rapid practice drill</span>
+        </div>
+        <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+          {[10, 25, 50, 100].map((count) => (
+            <button
+              key={count}
+              type="button"
+              onClick={() => handleQuickPractice(count)}
+              className="rounded-2xl border border-slate-200 bg-white p-3.5 text-center font-bold text-slate-900 transition hover:border-violet-400 hover:bg-violet-50/50 hover:text-violet-700 dark:border-slate-800 dark:bg-slate-900 dark:text-white"
+            >
+              {count} Questions
+            </button>
+          ))}
+        </div>
+      </section>
+
+      {/* 4. Performance Snapshot & Top Weak Topics Grid */}
+      <section className="grid gap-5 lg:grid-cols-[1fr_340px]">
+        <div className="space-y-5">
+          {/* Performance Snapshot */}
+          <div className="panel p-5 space-y-4">
+            <h2 className="font-display text-lg font-bold text-slate-950 dark:text-white">
+              Performance Snapshot
+            </h2>
+            <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+              <SnapshotBox label="Attempted" value={stats.attemptedQuestions} tone="violet" />
+              <SnapshotBox label="Accuracy" value={`${stats.accuracy}%`} tone="emerald" />
+              <SnapshotBox label="Correct" value={stats.correctAnswers} tone="cyan" />
+              <SnapshotBox label="Wrong Answers" value={stats.wrongAnswers} tone="rose" />
+            </div>
+          </div>
+
+          {/* Practice Categories Tabs */}
+          <div className="panel p-5 space-y-4">
+            <div className="flex items-center justify-between">
+              <h2 className="font-display text-lg font-bold text-slate-950 dark:text-white">
+                Question Banks & Categories
+              </h2>
+              <Link to="/admin/content" className="text-xs font-semibold text-violet-600 hover:underline">
+                Registry Admin →
+              </Link>
+            </div>
+
+            {/* Category Filter Pills */}
+            <div className="flex flex-wrap gap-2">
+              <button
+                type="button"
+                onClick={() => setSelectedCategory("all")}
+                className={`rounded-xl px-3 py-1.5 text-xs font-bold transition ${
+                  selectedCategory === "all"
+                    ? "bg-violet-600 text-white"
+                    : "bg-slate-100 text-slate-700 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-200"
+                }`}
+              >
+                All Banks
+              </button>
+              {CATEGORY_META.map((meta) => (
+                <button
+                  key={meta.type}
+                  type="button"
+                  onClick={() => setSelectedCategory(meta.type)}
+                  className={`rounded-xl px-3 py-1.5 text-xs font-bold transition ${
+                    selectedCategory === meta.type
+                      ? "bg-violet-600 text-white"
+                      : "bg-slate-100 text-slate-700 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-200"
+                  }`}
+                >
+                  {meta.title}
+                </button>
+              ))}
+            </div>
+
+            {/* Category Cards Grid */}
+            <div className="grid gap-3 sm:grid-cols-2">
+              {filteredSets.map((set) => (
+                <Link
+                  key={set.id}
+                  to={`/setup/${set.id}`}
+                  className="rounded-2xl border border-slate-200 bg-white p-4 transition hover:border-violet-400 hover:shadow-soft dark:border-slate-800 dark:bg-slate-900"
+                >
+                  <div className="flex items-center justify-between">
+                    <span className="rounded-full bg-violet-100 px-2.5 py-0.5 text-[11px] font-bold text-violet-700 dark:bg-violet-500/10 dark:text-violet-300">
+                      {set.questions?.length || 0} Questions
+                    </span>
+                    <span className="text-xs font-semibold text-slate-400 uppercase">
+                      {set.type || "topic_wise"}
+                    </span>
+                  </div>
+                  <h3 className="mt-3 font-bold text-base text-slate-950 dark:text-white">
+                    {set.title}
+                  </h3>
+                  <p className="mt-1 text-xs text-slate-500 dark:text-slate-400 line-clamp-2">
+                    {set.description || "Topic-wise exam preparation question bank."}
+                  </p>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Sidebar Cards: Revision & Weak Topics */}
+        <div className="space-y-5">
+          {/* Revision Shortcuts */}
+          <section className="panel p-5 space-y-3">
+            <h3 className="font-display text-base font-bold text-slate-950 dark:text-white">
+              Revision Hub
+            </h3>
+            <div className="space-y-2">
+              <Link
+                to="/wrong-questions"
+                className="flex items-center justify-between rounded-2xl bg-rose-50 p-3.5 text-xs font-bold text-rose-950 transition hover:bg-rose-100 dark:bg-rose-500/10 dark:text-rose-200"
+              >
+                <div className="flex items-center gap-2">
+                  <AlertCircle className="h-4 w-4 text-rose-600" />
+                  <span>My Wrong Questions</span>
+                </div>
+                <span className="rounded-full bg-rose-200 px-2 py-0.5 text-rose-800 dark:bg-rose-800 dark:text-rose-100">
+                  {wrongCount}
+                </span>
+              </Link>
+
+              <Link
+                to="/revision"
+                className="flex items-center justify-between rounded-2xl bg-purple-50 p-3.5 text-xs font-bold text-purple-950 transition hover:bg-purple-100 dark:bg-purple-500/10 dark:text-purple-200"
+              >
+                <div className="flex items-center gap-2">
+                  <BookmarkCheck className="h-4 w-4 text-purple-600" />
+                  <span>Bookmarked Questions</span>
+                </div>
+                <span className="rounded-full bg-purple-200 px-2 py-0.5 text-purple-800 dark:bg-purple-800 dark:text-purple-100">
+                  {bookmarkCount}
+                </span>
+              </Link>
+
+              <Link
+                to="/revision"
+                className="flex items-center justify-between rounded-2xl bg-violet-50 p-3.5 text-xs font-bold text-violet-950 transition hover:bg-violet-100 dark:bg-violet-500/10 dark:text-violet-200"
+              >
+                <div className="flex items-center gap-2">
+                  <FileText className="h-4 w-4 text-violet-600" />
+                  <span>Revision Center</span>
+                </div>
+                <span>→</span>
+              </Link>
+            </div>
+          </section>
+
+          {/* Top 5 Weak Topics */}
+          <section className="panel p-5 space-y-3 border-l-4 border-l-rose-500">
+            <div className="flex items-center justify-between">
+              <h3 className="font-display text-base font-bold text-slate-950 dark:text-white">
+                Top Weak Topics
+              </h3>
+              <Link to="/reports" className="text-xs text-violet-600 hover:underline">
+                View All
+              </Link>
+            </div>
+
+            <div className="space-y-2">
+              {topicAnalytics.weakTopics.slice(0, 5).map((topic, i) => (
+                <div
+                  key={topic.topic}
+                  className="flex items-center justify-between rounded-xl bg-slate-50 p-2.5 text-xs dark:bg-slate-800/70"
+                >
+                  <span className="font-semibold text-slate-900 dark:text-white truncate max-w-[180px]">
+                    {i + 1}. {topic.topic}
+                  </span>
+                  <span className="font-bold text-rose-600">{topic.accuracy}%</span>
+                </div>
+              ))}
+
+              {!topicAnalytics.weakTopics.length && (
+                <p className="text-xs text-slate-400 italic">No weak topics identified yet.</p>
+              )}
+            </div>
+          </section>
+        </div>
+      </section>
     </div>
   );
 }
 
-function HeroStat({ icon: Icon, label, value, tone }) {
-  const toneClass =
-    tone === "cyan"
-      ? "bg-cyan-100 text-cyan-600 dark:bg-cyan-500/10 dark:text-cyan-300"
-      : tone === "orange"
-        ? "bg-orange-100 text-orange-600 dark:bg-orange-500/10 dark:text-orange-300"
-        : "bg-violet-100 text-violet-600 dark:bg-violet-500/10 dark:text-violet-300";
+function SnapshotBox({ label, value, tone }) {
+  const color =
+    tone === "rose"
+      ? "text-rose-600"
+      : tone === "emerald"
+      ? "text-emerald-600"
+      : tone === "cyan"
+      ? "text-cyan-600"
+      : "text-violet-600";
 
   return (
-    <div className="mx-auto flex w-full max-w-xs items-center gap-3 rounded-[22px] border border-[#eadffd] bg-white px-4 py-3 text-left shadow-sm dark:border-slate-700 dark:bg-slate-900">
-      <div className={`rounded-2xl p-3 ${toneClass}`}>
-        <Icon className="h-5 w-5" />
-      </div>
-      <div>
-        <p className="text-xl font-bold text-slate-950 dark:text-white">{value}</p>
-        <p className="text-sm font-semibold text-slate-500 dark:text-slate-400">{label}</p>
-      </div>
+    <div className="rounded-2xl bg-slate-50 p-3.5 text-center dark:bg-slate-800/70">
+      <p className="text-xs text-slate-500">{label}</p>
+      <p className={`mt-1 text-xl font-extrabold ${color}`}>{value}</p>
     </div>
   );
 }
