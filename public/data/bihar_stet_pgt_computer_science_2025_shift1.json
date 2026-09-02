@@ -1,0 +1,1805 @@
+{
+  "title": "Bihar STET PGT (Computer Science) — 03 Nov 2025 Shift 1",
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is the main purpose of inheritance in OOP?",
+      "options": [
+        "To create instances of classes",
+        "To prevent data abstraction",
+        "To establish a parent-child relationship between classes",
+        "To define exceptions"
+      ],
+      "answer": 2,
+      "explanation": ""
+    },
+    {
+      "id": 2,
+      "question": "Microcontrollers find application in various fields. What is a typical application of microcontrollers in the automotive industry?",
+      "options": [
+        "Operating systems for computers",
+        "Entertainment systems in airplanes",
+        "Engine control in cars",
+        "Weather forecasting systems"
+      ],
+      "answer": 1,
+      "explanation": ""
+    },
+    {
+      "id": 3,
+      "question": "The term \"FAT\" is stands for_____",
+      "options": [
+        "File Allocation Tree",
+        "File Allocation Table",
+        "File Allocation Graph",
+        "All of the above"
+      ],
+      "answer": 0,
+      "explanation": ""
+    },
+    {
+      "id": 4,
+      "question": "What is CRUD an acronym for in database operations?",
+      "options": [
+        "Create, Read, Update, Delete",
+        "Cache, Read, Update, Delete",
+        "Copy, Replace, Update, Delete",
+        "Collect, Read, Use, Discard"
+      ],
+      "answer": 0,
+      "explanation": ""
+    },
+    {
+      "id": 5,
+      "question": "Which principle ensures that only essential information is visible to the outside world?",
+      "options": [
+        "Polymorphism",
+        "Information hiding",
+        "Encapsulation",
+        "Abstraction"
+      ],
+      "answer": 0,
+      "explanation": ""
+    },
+    {
+      "id": 6,
+      "question": "Contention-based MAC protocols are commonly used in:",
+      "options": [
+        "Ethernet networks",
+        "Token Ring networks",
+        "ATM networks",
+        "Point-to-Point networks"
+      ],
+      "answer": 0,
+      "explanation": ""
+    },
+    {
+      "id": 7,
+      "question": "Stealing someone's intellectual work and representing it as your own is known as ………….",
+      "options": [
+        "Fraud",
+        "Identity Theft",
+        "Online Stealing",
+        "Plagiarism"
+      ],
+      "answer": 0,
+      "explanation": ""
+    },
+    {
+      "id": 8,
+      "question": "Even with two-factor authentication, users may still be vulnerable to_____________attacks",
+      "options": [
+        "Scripting",
+        "Cross attack",
+        "Man-in-the-middle",
+        "Radiant"
+      ],
+      "answer": 0,
+      "explanation": ""
+    },
+    {
+      "id": 9,
+      "question": "What is the term for the ability of a class to provide different implementations of a method based on the input parameters?",
+      "options": [
+        "Overloading",
+        "Polymorphism",
+        "Inheritance",
+        "Encapsulation"
+      ],
+      "answer": 1,
+      "explanation": ""
+    },
+    {
+      "id": 10,
+      "question": "Which of the following refers to creating products tailored to individual customers?",
+      "options": [
+        "Customization",
+        "Adaptation",
+        "Direct material",
+        "Auction"
+      ],
+      "answer": 0,
+      "explanation": ""
+    },
+    {
+      "id": 11,
+      "question": "The length of an IPv6 address is:",
+      "options": [
+        "32 bits",
+        "64 bits",
+        "128 bits",
+        "256 bits"
+      ],
+      "answer": 1,
+      "explanation": ""
+    },
+    {
+      "id": 12,
+      "question": "A website or online platform where individuals or groups regularly publish written content, typically in a reverse chronological order is known as :",
+      "options": [
+        "News Group",
+        "Blog",
+        "Chat Group",
+        "Social Networking"
+      ],
+      "answer": 2,
+      "explanation": ""
+    },
+    {
+      "id": 13,
+      "question": "A text file song .txt contains the following contents in it: Life goes on as it never ends What will be the output of the following code snippet? f1 = open (\"song.txt\", \"r\") s1 = f1. read (5) s2 = f1. readline (4) s3 = f1. read (3) print (s1, s3, sep = \"#\")",
+      "options": [
+        "goes # on",
+        "Life #goes # on",
+        "Life # on",
+        "Error"
+      ],
+      "answer": 1,
+      "explanation": ""
+    },
+    {
+      "id": 14,
+      "question": "Who used the term \"IoT\" fist?",
+      "options": [
+        "Steve Jobs",
+        "Bill Simpson",
+        "Kevin Aston",
+        "None of these"
+      ],
+      "answer": 0,
+      "explanation": ""
+    },
+    {
+      "id": 15,
+      "question": "Which programming languages are commonly supported by Dreamweaver for web development?",
+      "options": [
+        "Python and Ruby",
+        "HTML and CSS @",
+        "C++ and Java",
+        "PHP and MySQL"
+      ],
+      "answer": 1,
+      "explanation": ""
+    },
+    {
+      "id": 16,
+      "question": "What is the purpose of a constructor in OOP?",
+      "options": [
+        "To destroy objects",
+        "To create instances of abstract classes",
+        "To initialize object properties",
+        "To define abstract methods"
+      ],
+      "answer": 1,
+      "explanation": ""
+    },
+    {
+      "id": 17,
+      "question": "What is the main advantage of using abstract classes over interfaces?",
+      "options": [
+        "Abstract classes can have multiple inheritance, unlike interfaces",
+        "Interfaces can have constructors, while abstract classes cannot",
+        "Abstract classes can provide default implementations of methods",
+        "Interfaces allow for private access modifiers, unlike abstract classes"
+      ],
+      "answer": 0,
+      "explanation": ""
+    },
+    {
+      "id": 18,
+      "question": "Which of the following networking devices is used to regenerate and transmit the weakened signal ahead ?",
+      "options": [
+        "Hub",
+        "Ethernet Card",
+        "Repeater",
+        "Modern"
+      ],
+      "answer": 1,
+      "explanation": ""
+    },
+    {
+      "id": 19,
+      "question": "The maximum length (in bytes) of an IPv4 datagram is:",
+      "options": [
+        "32",
+        "256",
+        "1024",
+        "65535"
+      ],
+      "answer": 0,
+      "explanation": ""
+    },
+    {
+      "id": 20,
+      "question": "Ginni has created a table, SCORES in MySQL to store runs scored by players in a cricket match. The table contains the following records: Table : Scores PLAYER SCORE Ranveer 50 Sukesh 35 Mirza 10 John 51 Murugan 70 Which of the following statements will give 10 as output?",
+      "options": [
+        "SELECT MAX (Score) FROM Scores;",
+        "SELECT MIN (Score) FROM Scores;",
+        "SELECT SUM (Score) FROM Scores;",
+        "SELECT AVG (Score) FROM Scores;"
+      ],
+      "answer": 0,
+      "explanation": ""
+    },
+    {
+      "id": 21,
+      "question": "…………………..data type is used to implement Queue data structure in Python.",
+      "options": [
+        "Sets",
+        "Dictionary",
+        "Tuple",
+        "List"
+      ],
+      "answer": 2,
+      "explanation": ""
+    },
+    {
+      "id": 22,
+      "question": "In an ideal microcomputer, where is the Arithmetic Logic Unit (ALU) located?",
+      "options": [
+        "CPU",
+        "Memory",
+        "Input devices",
+        "Output devices"
+      ],
+      "answer": 0,
+      "explanation": ""
+    },
+    {
+      "id": 23,
+      "question": "What consists of the identification of risks or threats, the implementation of security measures, and the monitoring of those measures for effectiveness?",
+      "options": [
+        "Risk assessment",
+        "Security",
+        "Risk Management",
+        "None of the above"
+      ],
+      "answer": 0,
+      "explanation": ""
+    },
+    {
+      "id": 24,
+      "question": "Which of the following attributes is not a valid attribute of the tag in HTML ?",
+      "options": [
+        "text",
+        "background",
+        "bgcolor",
+        "width"
+      ],
+      "answer": 0,
+      "explanation": ""
+    },
+    {
+      "id": 25,
+      "question": "SQL applies conditions on the groups through………clause after groups have been formed.",
+      "options": [
+        "where",
+        "having",
+        "new",
+        "all"
+      ],
+      "answer": 0,
+      "explanation": ""
+    },
+    {
+      "id": 26,
+      "question": "Given binary numbers A = 101010 and B = 111111, what is the result of (A AND B) OR (A XOR B)?",
+      "options": [
+        "111111",
+        "101111",
+        "111010",
+        "101010"
+      ],
+      "answer": 3,
+      "explanation": ""
+    },
+    {
+      "id": 27,
+      "question": "A Language for which DFA exist is a________",
+      "options": [
+        "Regular Language",
+        "Non-Regular Language",
+        "Any language",
+        "Cannot be said"
+      ],
+      "answer": 0,
+      "explanation": ""
+    },
+    {
+      "id": 28,
+      "question": "What is the difference between a website and a web page?",
+      "options": [
+        "A website is a collection of web pages, while a web page is a single document that is displayed on the web.",
+        "A website is a software program, while a web page is a hardware device.",
+        "A website is a physical object, while a web page is a logical object.",
+        "All of the above."
+      ],
+      "answer": 0,
+      "explanation": ""
+    },
+    {
+      "id": 29,
+      "question": "The “Turing Machine” showed that you could use a/an _____ system to program any algorithmic task.",
+      "options": [
+        "binary",
+        "electro-chemical",
+        "recursive",
+        "semantic"
+      ],
+      "answer": 2,
+      "explanation": ""
+    },
+    {
+      "id": 30,
+      "question": "What is the term for a condition that occurs during program execution that disrupts the normal flow of instructions?",
+      "options": [
+        "Abstraction",
+        "Inheritance",
+        "Exception",
+        "Encapsulation"
+      ],
+      "answer": 1,
+      "explanation": ""
+    },
+    {
+      "id": 31,
+      "question": "The term \"Data\" refers to:",
+      "options": [
+        "The electronic representation of the information(or data)",
+        "Basic information",
+        "Raw Facts and figures",
+        "Both A and C"
+      ],
+      "answer": 0,
+      "explanation": ""
+    },
+    {
+      "id": 32,
+      "question": "Which among the following was the first web browser ?",
+      "options": [
+        "Internet Explorer",
+        "Mosaic",
+        "Google Chrome",
+        "Opera"
+      ],
+      "answer": 0,
+      "explanation": ""
+    },
+    {
+      "id": 33,
+      "question": "Which among the following search algorithm requires least memory?",
+      "options": [
+        "Optimal Search",
+        "Linear Search",
+        "DFS",
+        "BFS"
+      ],
+      "answer": 0,
+      "explanation": ""
+    },
+    {
+      "id": 34,
+      "question": "What is the primary role of the memory-mapped I/O technique in a microcontroller?",
+      "options": [
+        "It increases the speed of program execution",
+        "It provides additional memory space for data storage",
+        "It allows external devices to access the microcontroller's memory",
+        "It eliminates the need for I/O operations"
+      ],
+      "answer": 0,
+      "explanation": ""
+    },
+    {
+      "id": 35,
+      "question": "Context switching in an operating system refers to the process of:",
+      "options": [
+        "Switching between user and kernel modes",
+        "Switching between processes to allow multitasking",
+        "Switching between different file systems",
+        "Switching between different operating systems"
+      ],
+      "answer": 2,
+      "explanation": ""
+    },
+    {
+      "id": 36,
+      "question": "What is the typical operating voltage range for TTL logic family?",
+      "options": [
+        "1.8 V to 3.3 V",
+        "3.3 V to 5.0 V",
+        "5.0 V to 12 V",
+        "-5.0 V to 5.0 V"
+      ],
+      "answer": 2,
+      "explanation": ""
+    },
+    {
+      "id": 37,
+      "question": "Communication over mobile phone is an example of which type of communication mode?",
+      "options": [
+        "Simplex",
+        "Half - Duplex",
+        "Full - Duplex",
+        "Double - Duplex"
+      ],
+      "answer": 2,
+      "explanation": ""
+    },
+    {
+      "id": 38,
+      "question": "The advantage of using an expert system development tool is___________?",
+      "options": [
+        "imposed structure",
+        "knowledge engineering assistance",
+        "rapid prototyping",
+        "all of the mentioned"
+      ],
+      "answer": 1,
+      "explanation": ""
+    },
+    {
+      "id": 39,
+      "question": "Consider the statements given below and then choose the correct output from the given options : def Change (N) : N=N+10 print (N , end= '$$ ' ) N=15 Change (N) print (N)",
+      "options": [
+        "25$$15",
+        "15$$25",
+        "25$$25",
+        "2525$$"
+      ],
+      "answer": 0,
+      "explanation": ""
+    },
+    {
+      "id": 40,
+      "question": "_________________ is two dimensional data structure in Python with row index and column index.",
+      "options": [
+        "DataFrame",
+        "List",
+        "Tuple",
+        "Series"
+      ],
+      "answer": 2,
+      "explanation": ""
+    },
+    {
+      "id": 41,
+      "question": "What is the output of the following expression? Sports = \"Paralympic Games\" print ( Sports. Split ( \"m\"))",
+      "options": [
+        "[ ' Paraly ' , 'm' , 'pic Ga', 'm', ' es']",
+        "('Paraly', 'm', 'pic Games')",
+        "('Paraly', 'pic Ga', 'es')",
+        "[ 'Paraly', 'pic Ga', 'es']"
+      ],
+      "answer": 0,
+      "explanation": ""
+    },
+    {
+      "id": 42,
+      "question": "A PDA chooses the next move based on",
+      "options": [
+        "Current state",
+        "Next input symbol",
+        "Both (a) and (b)",
+        "None of these"
+      ],
+      "answer": 0,
+      "explanation": ""
+    },
+    {
+      "id": 43,
+      "question": "A photograph is an analog image and a ___ can convert it into a digital image.",
+      "options": [
+        "Printer",
+        "Scanner",
+        "Webcam",
+        "Camera"
+      ],
+      "answer": 1,
+      "explanation": ""
+    },
+    {
+      "id": 44,
+      "question": "A problem is said to be in NP if:",
+      "options": [
+        "Its solution can be verified in polynomial time",
+        "It can be solved using a non-deterministic algorithm",
+        "It is not solvable",
+        "It has exponential complexity"
+      ],
+      "answer": 0,
+      "explanation": ""
+    },
+    {
+      "id": 45,
+      "question": "The protocol that is used to send e-mails is _________.",
+      "options": [
+        "HTTP",
+        "POP",
+        "SMTP",
+        "FTP"
+      ],
+      "answer": 0,
+      "explanation": ""
+    },
+    {
+      "id": 46,
+      "question": "In OOP, what is method overloading?",
+      "options": [
+        "Creating multiple constructors",
+        "Using multiple inheritance",
+        "Defining multiple methods with the same name but different parameters",
+        "Inheriting multiple methods from a parent class"
+      ],
+      "answer": 0,
+      "explanation": ""
+    },
+    {
+      "id": 47,
+      "question": "Private Key cryptography is also known as ‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐cryptography.",
+      "options": [
+        "Private key",
+        "Symetric",
+        "Asymetric",
+        "None of the above"
+      ],
+      "answer": 0,
+      "explanation": ""
+    },
+    {
+      "id": 48,
+      "question": "Which maintenance process model focuses on fixing defects as they are identified?",
+      "options": [
+        "Waterfall Model",
+        "Corrective Maintenance",
+        "Perfective Maintenance",
+        "Adaptive Maintenance"
+      ],
+      "answer": 1,
+      "explanation": ""
+    },
+    {
+      "id": 49,
+      "question": "Which of the following attributes is not a valid attribute of the tag in HTML ?",
+      "options": [
+        "face",
+        "type",
+        "size",
+        "colour"
+      ],
+      "answer": 0,
+      "explanation": ""
+    },
+    {
+      "id": 50,
+      "question": "Which of the following is the first and foremost step in Image Processing?",
+      "options": [
+        "Image acquisition",
+        "Segmentation",
+        "Image enhancement",
+        "Image restoration"
+      ],
+      "answer": 2,
+      "explanation": ""
+    },
+    {
+      "id": 51,
+      "question": "What is the expanded form of TCP in TCP/IP ?",
+      "options": [
+        "Transmission Control Protocol",
+        "Transmission Central Protocol",
+        "Transfer Control Protocol",
+        "Transport Central Protocol"
+      ],
+      "answer": 2,
+      "explanation": ""
+    },
+    {
+      "id": 52,
+      "question": "The kernel operates in a privileged mode, also known as:",
+      "options": [
+        "User mode",
+        "Debug mode",
+        "Supervisor mode",
+        "Interrupt mode"
+      ],
+      "answer": 1,
+      "explanation": ""
+    },
+    {
+      "id": 53,
+      "question": "The \"inode\" in a Unix-like file system is used to:",
+      "options": [
+        "Store the contents of the file",
+        "Store the file's name and location",
+        "Store the attributes and metadata of the file",
+        "Store the directory structure of the file system"
+      ],
+      "answer": 1,
+      "explanation": ""
+    },
+    {
+      "id": 54,
+      "question": "The term HTTP stand for:",
+      "options": [
+        "Hyper Terminal Tracing Program",
+        "Hypertext Tracing Program",
+        "Hypertext Transfer Protocol",
+        "Hypertext Tracing Protocol"
+      ],
+      "answer": 2,
+      "explanation": ""
+    },
+    {
+      "id": 55,
+      "question": "The range of numbers that can be represented in an n-bit 1's complement system is from:",
+      "options": [
+        "-2^(n-1) to 2^(n-1) - 1",
+        "0 to 2^n - 1",
+        "-2^(n-1) to 2^(n-1)",
+        "-2^n to 2^n - 1"
+      ],
+      "answer": 1,
+      "explanation": ""
+    },
+    {
+      "id": 56,
+      "question": "Which of the following are advantages normally associated with B2B e‐commerce?",
+      "options": [
+        "Wide Reach",
+        "Shorter Cycle Time",
+        "Reduced Cost",
+        "All of the above"
+      ],
+      "answer": 2,
+      "explanation": ""
+    },
+    {
+      "id": 57,
+      "question": "____________ offers the ability to query the data and insert, alter, and delete tuples.",
+      "options": [
+        "Transaction Control Language (TCL)",
+        "Data Control Language (DCL)",
+        "Data Definition Language (DDL)",
+        "Data Manipulation Language (DML)"
+      ],
+      "answer": 0,
+      "explanation": ""
+    },
+    {
+      "id": 58,
+      "question": "Program Analysis Tools are used for:",
+      "options": [
+        "Designing software architecture",
+        "Measuring software reliability",
+        "Automatically generating test cases",
+        "Analysing code for errors and performance bottlenecks"
+      ],
+      "answer": 2,
+      "explanation": ""
+    },
+    {
+      "id": 59,
+      "question": "In OOP, what does the term \"method signature\" refer to?",
+      "options": [
+        "The name of the method",
+        "The return type of the method",
+        "The parameters of the method",
+        "The combination of method name and parameter types"
+      ],
+      "answer": 1,
+      "explanation": ""
+    },
+    {
+      "id": 60,
+      "question": "Which testing approach involves testing individual components or units of code?",
+      "options": [
+        "Integration Testing",
+        "System Testing",
+        "Unit Testing",
+        "Acceptance Testing"
+      ],
+      "answer": 1,
+      "explanation": ""
+    },
+    {
+      "id": 61,
+      "question": "For a 2-D array represented in row-major order, the index formula to access the element at row \"i\" and column \"j\" using the base address \"B\" is:",
+      "options": [
+        "Index = B + (i * n + j)",
+        "Index = B + (j * n + i)",
+        "Index = B + (i + j)",
+        "Index = B + (i * m + j)"
+      ],
+      "answer": 1,
+      "explanation": ""
+    },
+    {
+      "id": 62,
+      "question": "Which of the following is not a limitation of file system?",
+      "options": [
+        "Data Redundancy",
+        "Data Inconsistency",
+        "Data dependence",
+        "Storing Space"
+      ],
+      "answer": 0,
+      "explanation": ""
+    },
+    {
+      "id": 63,
+      "question": "What is the purpose of ARP (Address Resolution Protocol)?",
+      "options": [
+        "To assign IP addresses to devices",
+        "To resolve domain names to IP addresses",
+        "To map MAC addresses to IP addresses",
+        "To manage network congestion"
+      ],
+      "answer": 0,
+      "explanation": ""
+    },
+    {
+      "id": 64,
+      "question": "Which of the following is not a Web Service ?",
+      "options": [
+        "Using Diksha learning portal",
+        "Sending and receiving email",
+        "File transfer over Bluetooth",
+        "Using a banking portal for online transaction"
+      ],
+      "answer": 2,
+      "explanation": ""
+    },
+    {
+      "id": 65,
+      "question": "What is a NoSQL database?",
+      "options": [
+        "A NoSQL database is a database that does not use the relational model.",
+        "A No SQL database is a database that is not managed by a DBMS.",
+        "A No SQL database is a database that is not stored on a physical device.",
+        "All of the above."
+      ],
+      "answer": 0,
+      "explanation": ""
+    },
+    {
+      "id": 66,
+      "question": "Where will the Hill Climbing Algorithm terminate?",
+      "options": [
+        "Stopping Criterion met",
+        "Global Min/Max is achieved",
+        "No neighbor has higher value",
+        "All of the above"
+      ],
+      "answer": 0,
+      "explanation": ""
+    },
+    {
+      "id": 67,
+      "question": "Which of the following operator evaluates to True if the variable on either side of the operator points towards the same memory location and False otherwise ?",
+      "options": [
+        "is",
+        "is not",
+        "and",
+        "or"
+      ],
+      "answer": 1,
+      "explanation": ""
+    },
+    {
+      "id": 68,
+      "question": "In 3G and 4G mobile technologies, the character ‘G’ stands for :",
+      "options": [
+        "Generation",
+        "GPRS",
+        "Grid",
+        "Google"
+      ],
+      "answer": 0,
+      "explanation": ""
+    },
+    {
+      "id": 69,
+      "question": "What is MISO pin in the RFID Module?",
+      "options": [
+        "Master In Slave Out",
+        "Manage Internal Slave Output",
+        "Master Internal Search Optimization",
+        "Manage Input Slave Op"
+      ],
+      "answer": 2,
+      "explanation": ""
+    },
+    {
+      "id": 70,
+      "question": "Halting state of Turing machine are:",
+      "options": [
+        "Start and stop",
+        "Accept and reject",
+        "Start and reject",
+        "Reject and allow"
+      ],
+      "answer": 2,
+      "explanation": ""
+    },
+    {
+      "id": 71,
+      "question": "_________ are used to overcome the challenges of managing the resources of the IoT.",
+      "options": [
+        "Clustering",
+        "Software agents",
+        "Synchronization techniques",
+        "Cluster, Software agent, and Synchronization techniques"
+      ],
+      "answer": 2,
+      "explanation": ""
+    },
+    {
+      "id": 72,
+      "question": "What is the POS form of the Boolean expression F(A, B, C) = Π(1, 2, 4, 6)?",
+      "options": [
+        "(A + B + C ') (A + B' + C)(A '+ B + C)",
+        "(A' + B + C) (A '+ B + C)",
+        "(A' + B + C ') (A + B + C') (A '+ B + C)",
+        "(A + B' + C) (A + B '+ C) (A' + B + C)"
+      ],
+      "answer": 2,
+      "explanation": ""
+    },
+    {
+      "id": 73,
+      "question": "____________attribute is used to specify the location of an image file.",
+      "options": [
+        "alt",
+        "src",
+        "align",
+        "name"
+      ],
+      "answer": 1,
+      "explanation": ""
+    },
+    {
+      "id": 74,
+      "question": "If NFA of 5 states excluding the initial state is converted into DFA, maximum possible number of states for the DFA is?",
+      "options": [
+        "64",
+        "32",
+        "128",
+        "187"
+      ],
+      "answer": 0,
+      "explanation": ""
+    },
+    {
+      "id": 75,
+      "question": "What is the purpose of staffing level estimation in software project management?",
+      "options": [
+        "To determine the number of hardware components required",
+        "To identify potential risks in the project",
+        "To allocate appropriate resources to the project",
+        "To estimate the maintenance costs of the software"
+      ],
+      "answer": 1,
+      "explanation": ""
+    },
+    {
+      "id": 76,
+      "question": "What is DBMS?",
+      "options": [
+        "DBMS is a collection of queries",
+        ") DBMS is a high-level language",
+        "DBMS is a programming language",
+        "DBMS stores, modifies and retrieves data"
+      ],
+      "answer": 3,
+      "explanation": ""
+    },
+    {
+      "id": 77,
+      "question": "Which of the following is the correct identifier ?",
+      "options": [
+        "global",
+        "Break",
+        "def",
+        "with"
+      ],
+      "answer": 1,
+      "explanation": ""
+    },
+    {
+      "id": 78,
+      "question": "What is the time complexity of the Divide and Conquer algorithm for finding the maximum and minimum elements in an array of size \"n\"?",
+      "options": [
+        "O(n)",
+        "O(log n)",
+        "O(n log n)",
+        "O(n^2)"
+      ],
+      "answer": 1,
+      "explanation": ""
+    },
+    {
+      "id": 79,
+      "question": "Which of the following protocol is used for secure remote login ?",
+      "options": [
+        "FTP",
+        "HTTPS",
+        "TELNET",
+        "HTTP"
+      ],
+      "answer": 3,
+      "explanation": ""
+    },
+    {
+      "id": 80,
+      "question": "Which property of dynamic programming is particularly useful for solving Optimal Binary Search Tree problems?",
+      "options": [
+        "Optimal substructure",
+        "Greedy choice property",
+        "Divide and Conquer",
+        "Linear programming"
+      ],
+      "answer": 0,
+      "explanation": ""
+    },
+    {
+      "id": 81,
+      "question": "Which among the following are the limiting factors of IoT?",
+      "options": [
+        "Low power",
+        "Low processing power",
+        "Low memory",
+        "All of the above"
+      ],
+      "answer": 2,
+      "explanation": ""
+    },
+    {
+      "id": 82,
+      "question": "In the context of dynamic programming for solving multistage graph problems, what is memoization used for?",
+      "options": [
+        "Dividing the graph into stages",
+        "Sorting the vertices in the graph",
+        "Storing solutions to overlapping subproblems",
+        "Finding the shortest path"
+      ],
+      "answer": 2,
+      "explanation": ""
+    },
+    {
+      "id": 83,
+      "question": "How is the width of the data bus typically measured in a microcomputer system?",
+      "options": [
+        "In kilobytes (KB)",
+        "In megahertz (MHz)",
+        "In bits",
+        "In address lines"
+      ],
+      "answer": 2,
+      "explanation": ""
+    },
+    {
+      "id": 84,
+      "question": "The default value of the transaction identifier in a Modbus TCP packet is?",
+      "options": [
+        "0",
+        "1",
+        "2",
+        "3"
+      ],
+      "answer": 1,
+      "explanation": ""
+    },
+    {
+      "id": 85,
+      "question": "In the Divide and Conquer algorithm for finding the maximum and minimum elements, how are the results from the left and right subarrays combined?",
+      "options": [
+        "By taking the average of the maximum and minimum values",
+        "By comparing the maximum of the left and right subarrays and the minimum of the left and right subarrays",
+        "By adding the maximum of the left subarray to the minimum of the right subarray",
+        "By multiplying the maximum of the left subarray with the minimum of the right subarray"
+      ],
+      "answer": 0,
+      "explanation": ""
+    },
+    {
+      "id": 86,
+      "question": "The class of CFG is not closed under----",
+      "options": [
+        "Concatenation",
+        "Intersection",
+        "Union",
+        "Repeated Concatenation."
+      ],
+      "answer": 1,
+      "explanation": ""
+    },
+    {
+      "id": 87,
+      "question": "Which of the following is NOT a network topology?",
+      "options": [
+        "Star",
+        "Ring",
+        "Disk",
+        "Mesh"
+      ],
+      "answer": 1,
+      "explanation": ""
+    },
+    {
+      "id": 88,
+      "question": "Which implementation of a stack requires a fixed amount of memory allocated for a fixed number of elements?",
+      "options": [
+        "Array implementation",
+        "Linked implementation",
+        "Dynamic implementation",
+        "Static implementation"
+      ],
+      "answer": 3,
+      "explanation": ""
+    },
+    {
+      "id": 89,
+      "question": "The data structure used to represent the allocation status of main memory is known as:",
+      "options": [
+        "Page table",
+        "File allocation table",
+        "Memory map",
+        "Memory management unit"
+      ],
+      "answer": 1,
+      "explanation": ""
+    },
+    {
+      "id": 90,
+      "question": "What does the DOM represent in web development?",
+      "options": [
+        "Database of Objects and Models",
+        "Document Oriented Middleware",
+        "Data Object Model",
+        "Document Object Model"
+      ],
+      "answer": 3,
+      "explanation": ""
+    },
+    {
+      "id": 91,
+      "question": "The complement of a language will only be defined when and only when the __________ over the language is defined.",
+      "options": [
+        "Alphabet",
+        "Word",
+        "String",
+        "Grammar"
+      ],
+      "answer": 0,
+      "explanation": ""
+    },
+    {
+      "id": 92,
+      "question": "Which addressing mode involves specifying a value within the instruction itself, rather than referencing a memory location?",
+      "options": [
+        "Direct addressing",
+        "Immediate addressing",
+        "Indirect addressing",
+        "Indexed addressing"
+      ],
+      "answer": 1,
+      "explanation": ""
+    },
+    {
+      "id": 93,
+      "question": "In Excess-3 Code, why is the code considered self-complementing?",
+      "options": [
+        "Because it can be converted to ASCII directly",
+        "Because the 9's complement of each digit can be obtained by inverting its bits",
+        "Because it is used for financial calculations",
+        "Because it is a form of Gray code"
+      ],
+      "answer": 1,
+      "explanation": ""
+    },
+    {
+      "id": 94,
+      "question": "Which attribute of the tag is used to set the background color of a web page ?",
+      "options": [
+        "text",
+        "bgcolor",
+        "background",
+        "color"
+      ],
+      "answer": 1,
+      "explanation": ""
+    },
+    {
+      "id": 95,
+      "question": "The Internet of Things (IoT), access to real-time data, and the introduction of cyber- physical systems mark the big changes for this era.",
+      "options": [
+        "Industrial Revolution",
+        "3rd Industrial Revolution",
+        "Industry 4.0",
+        "Manufacturing automation"
+      ],
+      "answer": 0,
+      "explanation": ""
+    },
+    {
+      "id": 96,
+      "question": "Which of the following provides the ability to query information from the database and insert tuples into, delete tuples from, and modify tuples in the database?",
+      "options": [
+        "DML (Data Manipulation Language)",
+        "DDL (Data Definition Language)",
+        "Query",
+        "Relational Schema"
+      ],
+      "answer": 0,
+      "explanation": ""
+    },
+    {
+      "id": 97,
+      "question": "Which ZigBee device is used to transfer data between ZigBee devices?",
+      "options": [
+        "Zigbee Coordinator device",
+        "Zigbee Router",
+        "Zigbee start devce",
+        "Zigbee end devce"
+      ],
+      "answer": 2,
+      "explanation": ""
+    },
+    {
+      "id": 98,
+      "question": "Which of the following is the base case for a recursive factorial function?",
+      "options": [
+        "n == 0",
+        "n == 1",
+        "n < 0",
+        "n > 0"
+      ],
+      "answer": 1,
+      "explanation": ""
+    },
+    {
+      "id": 99,
+      "question": "File manipulation operations in an operating system include:",
+      "options": [
+        "Allocating memory to files",
+        "Assigning file names to processes",
+        "Loading files into CPU registers",
+        "Reading, writing, and modifying file content"
+      ],
+      "answer": 3,
+      "explanation": ""
+    },
+    {
+      "id": 100,
+      "question": "What does I stands for in CIA",
+      "options": [
+        "Indian",
+        "Individual",
+        "Income",
+        "Integrity"
+      ],
+      "answer": 1,
+      "explanation": ""
+    },
+    {
+      "id": 101,
+      "question": "The category of Audio -Visual Aids is:",
+      "options": [
+        "Tape-recorder",
+        "Television",
+        "Radio",
+        "All of these"
+      ],
+      "answer": 1,
+      "explanation": ""
+    },
+    {
+      "id": 102,
+      "question": "The process of selecting units from a population to estimate characteristics of the population is called",
+      "options": [
+        "analyzing",
+        "inference",
+        "research",
+        "sampling"
+      ],
+      "answer": 1,
+      "explanation": ""
+    },
+    {
+      "id": 103,
+      "question": "The importance of curriculum in the system of education is just like a:",
+      "options": [
+        "Preparation of students for service",
+        "Constitution in a country",
+        "Provision of latest knowledge",
+        "None of these"
+      ],
+      "answer": 1,
+      "explanation": ""
+    },
+    {
+      "id": 104,
+      "question": "Project-based activities is an example of",
+      "options": [
+        "Explore",
+        "Engage",
+        "Explain",
+        "Elaborate"
+      ],
+      "answer": 2,
+      "explanation": ""
+    },
+    {
+      "id": 105,
+      "question": "Rousseau has given the concept of Follow Nature. The meaning of this maxim is",
+      "options": [
+        "to give full freedom to the teacher",
+        "to regulate the education of a pupil according to his nature",
+        "the teacher should follow his discretion",
+        "knowledge should be given according to the teacher’s nature"
+      ],
+      "answer": 1,
+      "explanation": ""
+    },
+    {
+      "id": 106,
+      "question": "Who said \"The assignment method is an important step in teaching and learning process\"?",
+      "options": [
+        "Douglas",
+        "Dewey",
+        "Piaget",
+        "S Morris"
+      ],
+      "answer": 0,
+      "explanation": ""
+    },
+    {
+      "id": 107,
+      "question": "Freedom in education means",
+      "options": [
+        "the spirit of opposing the rules of the school regularly",
+        "the students will do anything they want",
+        "one's own growth freely and the recognition of others freedom to grow similarly",
+        "teachers are free to teach as they think"
+      ],
+      "answer": 2,
+      "explanation": ""
+    },
+    {
+      "id": 108,
+      "question": "Full form of EATS model is",
+      "options": [
+        "Essential questions, activity prior knowledge, teaching, summarizing & assessment",
+        "Elements questions, activity prior knowledge, teaching and summarizing",
+        "Experiential questions, activity prior knowledge, teaching, summarizing & assessment",
+        "Essential questions, activity prior knowledge, teaching and summarizing"
+      ],
+      "answer": 0,
+      "explanation": ""
+    },
+    {
+      "id": 109,
+      "question": "Drama or role play is most useful for teaching……….",
+      "options": [
+        "History",
+        "Science",
+        "Maths",
+        "Language"
+      ],
+      "answer": 0,
+      "explanation": ""
+    },
+    {
+      "id": 110,
+      "question": "A teaching procedure involved in the clarification or explanation to the student of some major idea is called",
+      "options": [
+        "demonstration method",
+        "lecture method",
+        "story telling method",
+        "problem solving method"
+      ],
+      "answer": 1,
+      "explanation": ""
+    },
+    {
+      "id": 111,
+      "question": "Which one of the following statements about progressive education explains-Education is life itself?",
+      "options": [
+        "School education should continue as long as possible.",
+        "Schools are not required, children can learn from their life experiences.",
+        "Education in schools should reflect the social and natural world.",
+        "Life is the true educator."
+      ],
+      "answer": 0,
+      "explanation": ""
+    },
+    {
+      "id": 112,
+      "question": "The practice of finding commonalities or fundamental connections across a range of particular circumstances is known as -----------------",
+      "options": [
+        "Abstraction",
+        "Generalization",
+        "Problem Solving",
+        "Reasoning"
+      ],
+      "answer": 2,
+      "explanation": ""
+    },
+    {
+      "id": 113,
+      "question": "Primary teacher should try to or concentrate in:",
+      "options": [
+        "Raising intellectual standard of the students",
+        "Improving physical standard of students",
+        "Help all round development of students",
+        "Inculcating value in students."
+      ],
+      "answer": 0,
+      "explanation": ""
+    },
+    {
+      "id": 114,
+      "question": "Students in primary classes have a lot of alternate conceptions in many topics like living, non-living, water cycle, plants etc. The sources of these alternate conceptions can be I. family and community. II. textbooks and other books. III. Leathers IV. stories and poems. Select the correct option given below",
+      "options": [
+        "I, II and IV",
+        "I, II, III and IV",
+        "Only I",
+        "I and II"
+      ],
+      "answer": 3,
+      "explanation": ""
+    },
+    {
+      "id": 115,
+      "question": "Effective teaching includes-",
+      "options": [
+        "Teacher is active but students may or may not be active.",
+        "Teacher may be active or inactive but students are active.",
+        "Teacher is active and students are active.",
+        "All the above"
+      ],
+      "answer": 2,
+      "explanation": ""
+    },
+    {
+      "id": 116,
+      "question": "Creativity is thought to be related to the concept of-",
+      "options": [
+        "fluid intelligence",
+        "crystallized intelligence",
+        "convergent thinking",
+        "divergent thinking"
+      ],
+      "answer": 3,
+      "explanation": ""
+    },
+    {
+      "id": 117,
+      "question": "Which one of the following is not a limitation of the preoperational thought?",
+      "options": [
+        "Tendency to concentrate",
+        "Development of the symbolic thought",
+        "Egocentrism",
+        "Irreversibility"
+      ],
+      "answer": 2,
+      "explanation": ""
+    },
+    {
+      "id": 118,
+      "question": "Which of the following best describes a symposium?",
+      "options": [
+        "A meeting of delegates from a fraternal organization",
+        "A public meeting where a short course of study is addressed by a single expert",
+        "A meeting where a small group of experts presents different aspects of a problem or topic to an audience",
+        "A debate between two opposing teams"
+      ],
+      "answer": 2,
+      "explanation": ""
+    },
+    {
+      "id": 119,
+      "question": "A child performing well in the class, must be",
+      "options": [
+        "praised",
+        "given reward",
+        "recognised",
+        "all of these"
+      ],
+      "answer": 0,
+      "explanation": ""
+    },
+    {
+      "id": 120,
+      "question": "First, the students will make a prediction of what will happen in the story. Then the students must make a list of the main events in the story. Lastly, I will write a review of the story. What skills are being used?",
+      "options": [
+        "Application, Synthesis, and Evaluation",
+        "Comprehension, Knowledge, and Analysis",
+        "Comprehension, Knowledge, and Evaluation",
+        "Evaluation, Knowledge, and Synthesis"
+      ],
+      "answer": 1,
+      "explanation": ""
+    },
+    {
+      "id": 121,
+      "question": "You want to adopt the teaching profession because",
+      "options": [
+        "there are many others in your family who are teachers",
+        "there is no other option to earn a livelihood",
+        "children give more respect and reverence",
+        "you get an oppurtinity to handle/ train the future citizens of the nation"
+      ],
+      "answer": 3,
+      "explanation": ""
+    },
+    {
+      "id": 122,
+      "question": "Areas/sources of information for psychological foundation are:",
+      "options": [
+        "Learning process",
+        "Teaching method",
+        "Student characteristics",
+        "All of these"
+      ],
+      "answer": 0,
+      "explanation": ""
+    },
+    {
+      "id": 123,
+      "question": "Which of the following is the objective of a teacher?",
+      "options": [
+        "To gain possible maximum fame",
+        "To extend the welfare of students to the possible maximum limit",
+        "To teach the possible maximum number of students",
+        "None of these"
+      ],
+      "answer": 1,
+      "explanation": ""
+    },
+    {
+      "id": 124,
+      "question": "Which statement is not true about planning of teaching?",
+      "options": [
+        "Teacher should know about content",
+        "Teacher become aggressive in class",
+        "Plans ways of providing regular meaningful feedback to students.",
+        "Decide upon/order textbooks(s), copies of articles, etc. which will be required."
+      ],
+      "answer": 1,
+      "explanation": ""
+    },
+    {
+      "id": 125,
+      "question": "The purpose of integrated curriculum is:",
+      "options": [
+        "Increase in no. of books",
+        "Decrease in no. of books",
+        "Increases in students enrolment",
+        "Decrease in dropout"
+      ],
+      "answer": 0,
+      "explanation": ""
+    },
+    {
+      "id": 126,
+      "question": "You have a mixed class of boys and girls. Which method would you adopt to improve co-operation between them?",
+      "options": [
+        "Asking parents to discuss equality",
+        "Making boys and girls share a bench",
+        "Setting tasks which have to be done together",
+        "Talking about equality in lessons"
+      ],
+      "answer": 1,
+      "explanation": ""
+    },
+    {
+      "id": 127,
+      "question": "The method for the acquisition of teaching skill is",
+      "options": [
+        "Inquiry learning",
+        "Team teaching",
+        "Discovery learning",
+        "Micro teaching"
+      ],
+      "answer": 0,
+      "explanation": ""
+    },
+    {
+      "id": 128,
+      "question": "Is micro teaching real teaching?",
+      "options": [
+        "Yes",
+        "no",
+        "Both yes and no from different perspectives",
+        "Can't say anything."
+      ],
+      "answer": 2,
+      "explanation": ""
+    },
+    {
+      "id": 129,
+      "question": "Basic education should be",
+      "options": [
+        "student oriented",
+        "activity oriented",
+        "project oriented",
+        "all of these"
+      ],
+      "answer": 1,
+      "explanation": ""
+    },
+    {
+      "id": 130,
+      "question": "Story telling enables the teacher to make lessons",
+      "options": [
+        "boring",
+        "complicated",
+        "a burden for students",
+        "lively and interesting to the pupils"
+      ],
+      "answer": 3,
+      "explanation": ""
+    },
+    {
+      "id": 131,
+      "question": "In any code GROUND is written as HQPTOC then what will be TIRED written in that code?",
+      "options": [
+        "UHSDE",
+        "VHSDE",
+        "UHSDC",
+        "UHQFC"
+      ],
+      "answer": 1,
+      "explanation": ""
+    },
+    {
+      "id": 132,
+      "question": "What is the term for a market condition where supply exceeds demand?",
+      "options": [
+        "Shortage",
+        "Surplus",
+        "Equilibrium",
+        "Deficit"
+      ],
+      "answer": 0,
+      "explanation": ""
+    },
+    {
+      "id": 133,
+      "question": "Khudai Khidmatgars were popularly known as the ___________",
+      "options": [
+        "Green Shirts",
+        "Red Shirts",
+        "Black Shirts",
+        "White Shirts"
+      ],
+      "answer": 1,
+      "explanation": ""
+    },
+    {
+      "id": 134,
+      "question": "To kill fungus on crops we generally used………….",
+      "options": [
+        "Insecticides",
+        "Pesticides",
+        "Fungicides",
+        "All of these"
+      ],
+      "answer": 2,
+      "explanation": ""
+    },
+    {
+      "id": 135,
+      "question": "For some people, playing is actually work. Below are some names of famous people, Pick the name whose work is actually playing.",
+      "options": [
+        "Ajeet Yogi",
+        "Michael Jordan",
+        "Jack Nicholson",
+        "Steve Jobs"
+      ],
+      "answer": 1,
+      "explanation": ""
+    },
+    {
+      "id": 136,
+      "question": "Choose the correct option instead of the question mark in the given question. GOA : 761 :: KAIMUR : ?",
+      "options": [
+        "119439",
+        "219339",
+        "219439",
+        "218349"
+      ],
+      "answer": 2,
+      "explanation": ""
+    },
+    {
+      "id": 137,
+      "question": "What will come in place of ? in the sequence 3, 14, 39, 84, ?, 258?",
+      "options": [
+        "150,",
+        "155",
+        "160",
+        "176"
+      ],
+      "answer": 1,
+      "explanation": ""
+    },
+    {
+      "id": 138,
+      "question": "Meena divides a number by 2. She then divides the answer by 2. This is the same as dividing the original number by:",
+      "options": [
+        "4",
+        "3",
+        "2",
+        "1"
+      ],
+      "answer": 0,
+      "explanation": ""
+    },
+    {
+      "id": 139,
+      "question": "A class VI mathematics teacher posed the following problem to her students: \"In a morning walk, three persons started together. Their steps measure 70 cm , 85 cm and 95 cm respectively. What is the minimum distance each should walk so that all can cover the same distance in complete steps?\" Which of the following concepts would be required to solve the given problem?",
+      "options": [
+        "Concept of LCM",
+        "Concept of division",
+        "Concept of proportion",
+        "Concept of HCF"
+      ],
+      "answer": 1,
+      "explanation": ""
+    },
+    {
+      "id": 140,
+      "question": "Out of 60 people in a colony, 10 speak only Bengali, 5 speak only Assamese, 10 speak both Hindi and Odia, 12 speak both Marathi and Hindi, 13 speak English, Tamil and Marathi, 5 speak both Assamese and Hindi and the remaining speak both Bengali and Hindi. How many people speak more than one language?",
+      "options": [
+        "15",
+        "45",
+        "50",
+        "55"
+      ],
+      "answer": 1,
+      "explanation": ""
+    },
+    {
+      "id": 141,
+      "question": "Pravin walked 30 metres towards East, took a right turn and walked 20 metres, again took a right turn and walked 30 metres. How far was he from the starting point?",
+      "options": [
+        "50 m.",
+        "40 m.",
+        "10 m.",
+        "20 m."
+      ],
+      "answer": 3,
+      "explanation": ""
+    },
+    {
+      "id": 142,
+      "question": "The statement related to the congruence of a triangle – “Given the length of any two sides and the length of these sides and the measure of the angle between these sides” – is a restriction/condition.",
+      "options": [
+        "SSS",
+        "S.A.S.",
+        "ASA",
+        "RHS"
+      ],
+      "answer": 1,
+      "explanation": ""
+    },
+    {
+      "id": 143,
+      "question": "The number of Bricks each measuring 25 cm x 12.5 cm x 7.5 cm required to construct a wall 6 m Long, 5 m High, and 0.5 m Thick, While the Mortar occupies 5 Percent of the Volume of the Wall is?",
+      "options": [
+        "8819",
+        "6080",
+        "9011",
+        "2019"
+      ],
+      "answer": 1,
+      "explanation": ""
+    },
+    {
+      "id": 144,
+      "question": "India is divided into how many pin code zones?",
+      "options": [
+        "Six",
+        "Seven",
+        "Eight",
+        "Ten"
+      ],
+      "answer": 0,
+      "explanation": ""
+    },
+    {
+      "id": 145,
+      "question": "Which of the following is not an outdoor game?",
+      "options": [
+        "Football",
+        "capture the flag",
+        "Uno<br",
+        "Frisbee"
+      ],
+      "answer": 3,
+      "explanation": ""
+    },
+    {
+      "id": 146,
+      "question": "Mahendragiri, the highest peak of the Eastern Ghats, is located in which one of the following states?",
+      "options": [
+        "Andhra Pradesh",
+        "Odisha",
+        "Telangana",
+        "Tamil Nadu"
+      ],
+      "answer": 0,
+      "explanation": ""
+    },
+    {
+      "id": 147,
+      "question": "Plants manufacture their food with the help of………..",
+      "options": [
+        "Oxygen, Sunlight, Water",
+        "Carbon dioxide , Oxygen, Sunlight",
+        "Water, Sunlight, Carbon dioxide",
+        "Oxygen, Sunlight"
+      ],
+      "answer": 1,
+      "explanation": ""
+    },
+    {
+      "id": 148,
+      "question": "Arrange the following in their chronological sequence : i. Cripps Mission ii. Montague Chelmsford Report iii. Simon Commission iv. Morley – Minto Reforms",
+      "options": [
+        "ii, iii, i, iv",
+        "iv, ii, iii, i",
+        "iii, i, ii, iv",
+        "i, iv, iii, ii"
+      ],
+      "answer": 2,
+      "explanation": ""
+    },
+    {
+      "id": 149,
+      "question": "In the alphabet how many Letters will be in between 10th and 24th Letter form the left end ?",
+      "options": [
+        "13",
+        "14",
+        "17",
+        "18"
+      ],
+      "answer": 0,
+      "explanation": ""
+    },
+    {
+      "id": 150,
+      "question": "Which of the following types of natural disasters has no definite beginning and end ?",
+      "options": [
+        "Earthquakes",
+        "Landslides",
+        "Hurricanes",
+        "Droughts"
+      ],
+      "answer": 0,
+      "explanation": ""
+    }
+  ]
+}
